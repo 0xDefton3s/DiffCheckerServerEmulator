@@ -20,4 +20,8 @@
     <ProjectReference Include="..\WatsonWebserver\WatsonWebserver\WatsonWebserver.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="rm -rf $(OutDir)\$(ProjectName).deps.json $(OutDir)\$(ProjectName).runtimeconfig.dev.json $(OutDir)\ref $(OutDir)\runtimes $(OutDir)\ref $(OutDir)\assets $(OutDir)\ref $(OutDir)\WatsonWebserver.xml" />
+  </Target>
+
 </Project>
